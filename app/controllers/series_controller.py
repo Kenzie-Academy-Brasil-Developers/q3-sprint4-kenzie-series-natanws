@@ -6,7 +6,7 @@ def create():
     try:
         data = Series.create_series()
     except:
-        return {"message": "Series already submitted."}, HTTPStatus.CONFLICT
+        return {"message": "Série já está cadastrada."}, HTTPStatus.CONFLICT
 
     return jsonify({"data": data}), HTTPStatus.CREATED
 
