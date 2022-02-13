@@ -20,6 +20,6 @@ def select_by_id(serie_id):
         data = Series.get_series_by_id(serie_id)
     except:
         Series.create_table()
-        return {"data": {}}, HTTPStatus.NOT_FOUND
+        return {"error": "Not Found"}, HTTPStatus.NOT_FOUND
 
     return jsonify({"data": data}), HTTPStatus.OK
