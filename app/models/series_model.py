@@ -71,6 +71,8 @@ class Series:
         cur.execute(query)
 
         serie = cur.fetchone()
+        FIELDNAMES = ["id", "serie", "seasons", "released_date", "genre", "imdb_rating"]
+        processed_data = [dict(zip(FIELDNAMES, row)) for row in serie]
 
         conn.commit()
         cur.close()
@@ -79,4 +81,4 @@ class Series:
         if serie == None:
             raise Exception
 
-        return serie
+        return processed_data
