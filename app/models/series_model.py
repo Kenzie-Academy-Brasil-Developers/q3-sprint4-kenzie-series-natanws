@@ -61,6 +61,7 @@ class Series:
         conn.close()
 
         return processed_data
+
     def get_series_by_id(id):
         conn = psycopg2.connect(**config)
         cur = conn.cursor()
@@ -74,5 +75,8 @@ class Series:
         conn.commit()
         cur.close()
         conn.close()
+
+        if serie == None:
+            raise Exception
 
         return serie
