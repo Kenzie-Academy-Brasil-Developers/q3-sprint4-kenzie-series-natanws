@@ -12,6 +12,11 @@ class Series:
 
         query = "CREATE TABLE IF NOT EXISTS ka_series(id BIGSERIAL PRIMARY KEY, serie VARCHAR(100) NOT NULL UNIQUE, seasons INTEGER NOT NULL, released_date DATE NOT NULL, genre VARCHAR(50) NOT NULL, imdb_rating FLOAT NOT NULL);"
 
+        cur.execute(query)
+        conn.commit()
+        cur.close()
+        conn.close()
+
     @staticmethod
     def create_series():
         data = request.get_json()
